@@ -1,0 +1,13 @@
+*.swp
+*.swo
+*.~
+*.autosave
+.~*
+*.log
+*.csv
+CMakeLists.txt.user
+include/buildVersion.h
+cmake/inConfig/autobon_profile.sh
+cmake/inConfig/cmake_uninstall.cmake
+ramdisk
+doxygen-html

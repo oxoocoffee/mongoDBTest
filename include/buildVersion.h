@@ -5,13 +5,13 @@
 // Author Robert J. Gebis (oxoocoffee)
 
 // the configured options and settings 
-#define APP_BUILD_VERSION       "0.1.1.23d8ae5-dirty"
+#define APP_BUILD_VERSION       "0.1.1.0815bf7-dirty"
 #define APP_BUILD_SYSTEM        "Linux-4.4.0-21-generic"
 
 #define APP_VERSION_MAJOR       "0"
 #define APP_VERSION_MINOR       "1"
 #define APP_VERSION_PATCH       "1"
-#define APP_VERSION_REVISION    "23d8ae5-dirty"
+#define APP_VERSION_REVISION    "0815bf7-dirty"
 
 // Define Path seperator based on system build
 #define PATH_SEPARATOR          '/'

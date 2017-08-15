@@ -28,6 +28,11 @@ class MongoDBTest
         bool    findArg(const std::string& param,
                         std::string&       paramVal) const;
 
+        void    doMongoDB(const std::string& host,
+                          const std::string& port,
+                          const std::string& user,
+                          const std::string& password);
+
     private:
         std::vector<std::string> _argVec;
 };

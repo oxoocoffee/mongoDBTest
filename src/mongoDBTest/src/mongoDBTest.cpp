@@ -69,6 +69,18 @@ void MongoDBTest::run(int argc, char* argv[])
         return;
     }
 
+    std::cout << "Doing MongoDB - Start" << std::endl;
+
+    doMongoDB(host, port, user, password);
+
+    std::cout << "Doing MongoDB - Finish" << std::endl;
+}
+
+void MongoDBTest::doMongoDB(const std::string& host,
+                            const std::string& port,
+                            const std::string& user,
+                            const std::string& password)
+{
     std::string        dbName("testdb");
     std::ostringstream uri;
 
@@ -91,7 +103,6 @@ void MongoDBTest::run(int argc, char* argv[])
     for (auto&& doc : cursor) {
         std::cout << bsoncxx::to_json(doc) << std::endl;
     }
-
 }
 
 void MongoDBTest::printUdate(const std::string& appName)

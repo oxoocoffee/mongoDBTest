@@ -26,7 +26,13 @@ find_package(PkgConfig QUIET)
 
 if (PKG_CONFIG_FOUND)
   # The best we can do until libMONGOC starts installing a libmongoc-config.cmake file
-  pkg_check_modules(LIBMONGOC REQUIRED libmongoc-1.0>=${LibMongoC_FIND_VERSION} )
+
+  if(LibMongoC_FIND_VERSION)
+      pkg_check_modules(LIBMONGOC REQUIRED libmongoc-1.0>=${LibMongoC_FIND_VERSION} )
+  else(LibMongoC_FIND_VERSION)
+      pkg_check_modules(LIBMONGOC libmongoc-1.0 )
+  endif(LibMongoC_FIND_VERSION)
+
   # We don't reiterate the version information here because we assume that
   # pkg_check_modules has honored our request.
   find_package_handle_standard_args(LIBMONGOC DEFAULT_MSG LIBMONGOC_FOUND)
@@ -50,6 +56,9 @@ if (PKG_CONFIG_FOUND)
 else()
     message(FATAL_ERROR "Don't know how to find libmongoc; please set LIBMONGOC_DIR to the prefix directory with which libbson was configured.")
 endif()
+
+# show the LIBMONGOC_INCLUDE_DIRS and LIBMONGOC_LIBRARIES variables only in the advanced view
+mark_as_advanced(LIBMONGOC_INCLUDE_DIRS LIBMONGOC_LIBRARIES)
 
 if(LIBMONGOC_FOUND)
     message(STATUS "Looking for libmongoc - found")

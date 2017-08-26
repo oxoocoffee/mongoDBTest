@@ -5,6 +5,7 @@
 .~*
 *.log
 *.csv
+*.user
 CMakeLists.txt.user
 include/buildVersion.h
 cmake/inConfig/autobon_profile.sh

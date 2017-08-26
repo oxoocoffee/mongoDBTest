@@ -30,18 +30,21 @@ if (PKG_CONFIG_FOUND)
     else(LibMongoCXX_FIND_VERSION)
         pkg_check_modules(LIBMONGOCXX libmongocxx)
     endif(LibMongoCXX_FIND_VERSION)
-  # We don't reiterate the version information here because we assume that
-  # pkg_check_modules has honored our request.
-  find_package_handle_standard_args(LIBMONGOCXX DEFAULT_MSG LIBMONGOCXX_FOUND)
+    # We don't reiterate the version information here because we assume that
+    # pkg_check_modules has honored our request.
+    find_package_handle_standard_args(LIBMONGOCXX DEFAULT_MSG LIBMONGOCXX_FOUND)
 elseif(LIBMONGOCXX_DIR)
-  # The best we can do until libMONGOCXX starts installing a libmongocxx-config.cmake file
-  set(LIBMONGOCXX_LIBRARIES mongocxx CACHE INTERNAL "")
-  set(LIBMONGOCXX_LIBRARY_DIRS ${LIBMONGOCXX_DIR}/lib CACHE INTERNAL "")
-  set(LIBMONGOCXX_INCLUDE_DIRS ${LIBMONGOCXX_DIR}/include/libmongocxx CACHE INTERNAL "")
-  find_package_handle_standard_args(LIBMONGOCXX DEFAULT_MSG LIBMONGOCXX_LIBRARIES LIBMONGOCXX_LIBRARY_DIRS LIBMONGOCXX_INCLUDE_DIRS)
+    # The best we can do until libMONGOCXX starts installing a libmongocxx-config.cmake file
+    set(LIBMONGOCXX_LIBRARIES mongocxx CACHE INTERNAL "")
+    set(LIBMONGOCXX_LIBRARY_DIRS ${LIBMONGOCXX_DIR}/lib CACHE INTERNAL "")
+    set(LIBMONGOCXX_INCLUDE_DIRS ${LIBMONGOCXX_DIR}/include/libmongocxx CACHE INTERNAL "")
+    find_package_handle_standard_args(LIBMONGOCXX DEFAULT_MSG LIBMONGOCXX_LIBRARIES LIBMONGOCXX_LIBRARY_DIRS LIBMONGOCXX_INCLUDE_DIRS)
 else()
     message(FATAL_ERROR "Don't know how to find libmongocxx; please set LIBMONGOCXX_DIR to the prefix directory with which libmongoxx was configured.")
 endif()
+
+# show the LIBMONGOCXX_INCLUDE_DIRS and LIBMONGOCXX_LIBRARIES variables only in the advanced view
+mark_as_advanced(LIBMONGOCXX_INCLUDE_DIRS LIBMONGOCXX_LIBRARIES)
 
 if(LIBMONGOCXX_FOUND)
     message(STATUS "Looking for libmongocxx - found")

@@ -10,6 +10,7 @@ file(GLOB client_SRCS src/*.cpp include/*.h)
 
 list_files( "${client_SRCS}" )
 
+link_directories(${LIBMONGOCXX_LIBRARY_DIRS})
 include_directories(include
                     ${APP_CONFIG_SRC_PATH}) # include buildVersion.h
 
